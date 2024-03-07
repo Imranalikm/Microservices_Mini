@@ -9,14 +9,14 @@ app.use(bodyParser.json());
 
 const posts={};
 app.get('/posts',(req,res)=>{
-
+   res.send(posts)
 })
 
 app.post('/events',(req,res)=>{
    const { type,data } = req.body
    if(type=== 'postCreated'){
        const {id , title} = data
-       posts[id] ={id,title ,comments:[]};
+       posts[id] = {id,title ,comments:[]};
    }
 
    if(type ==='CommentCreated'){
